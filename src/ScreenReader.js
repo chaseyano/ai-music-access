@@ -2,14 +2,21 @@ import React, { useState, useEffect } from 'react';
 
 function ScreenReader() {
     const [isActive, setIsActive] = useState(false);
+    const synth = window.speechSynthesis; // Get the speechSynthesis instance from the window
 
     useEffect(() => {
         const readContent = (event) => {
             if (!isActive) return;
-            
+
             event.preventDefault(); // Prevent default click actions
             const text = event.target.innerText || event.target.alt || 'No readable content';
-            alert(`Screen Reader says: ${text}`); // This could use a more sophisticated method than alert
+
+            // Stop current speech before saying new content
+            if (synth.speaking) {
+                synth.cancel();
+            }
+
+            speak(text);
         };
 
         if (isActive) {
@@ -21,7 +28,12 @@ function ScreenReader() {
         return () => {
             document.removeEventListener('click', readContent);
         };
-    }, [isActive]);
+    }, [isActive, synth]);
+
+    const speak = (text) => {
+        const utterance = new SpeechSynthesisUtterance(text);
+        synth.speak(utterance);
+    };
 
     return (
         <button onClick={() => setIsActive(!isActive)}>
