@@ -1,8 +1,9 @@
 import React from 'react';
-import './AccessibilityToolbar.css';
+import './AccessibilityToolbar.css'; // Ensure your CSS is correctly linked
 import Magnifier from './Magnifier';
 import FontSizeSlider from './FontSizeSlider';
-import ScreenReader from './ScreenReader'; // Import the new ScreenReader component
+import ScreenReader from './ScreenReader'; // Import the ScreenReader component
+import CrosshairNavigation from './CrosshairNavigation';  // Import the CrosshairNavigation component
 
 function AccessibilityToolbar() {
     return (
@@ -10,6 +11,10 @@ function AccessibilityToolbar() {
             <Magnifier />
             <FontSizeSlider />
             <ScreenReader />
+            <CrosshairNavigation />
+            <div className="navigation-instructions">
+                Press 'Q' to activate and use the one-click navigation.
+            </div>
         </div>
     );
 }

@@ -71,3 +71,22 @@ img {
     font-size: 16px; /* Fixed size, does not scale with root font-size changes */
     margin-right: 5px;
 }
+
+.horizontal-line, .vertical-line {
+    position: fixed;
+    background-color: red; 
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.horizontal-line {
+    left: 0;
+    right: 0;
+    height: 2px;
+}
+
+.vertical-line {
+    top: 0;
+    bottom: 0;
+    width: 2px;
+}
