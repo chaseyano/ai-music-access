@@ -1,0 +1,27 @@
+.accessibility-toolbar {
+    position: fixed;
+    left: 5%; /* Creates a gap from the left */
+    right: 5%; /* Creates a gap from the right */
+    bottom: 20px; /* Positions the toolbar above the bottom of the screen */
+    background-color: #fff; /* White background */
+    border: 1px solid #ccc; /* A light border around the toolbar */
+    padding: 5px; /* Reduced padding for a shorter toolbar */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Stronger shadow for depth */
+    border-radius: 10px; /* Rounded corners */
+    display: flex;
+    justify-content: center; /* Center the button horizontally */
+    align-items: center; /* Align items vertically */
+    height: 40px; /* Set a fixed height for a more compact look */
+  }
+  
+  .accessibility-toolbar button {
+    padding: 2px 10px; /* Further reduced padding to decrease height */
+    font-size: 14px; /* Suitable font size for readability */
+    cursor: pointer; /* Cursor pointer to indicate it's clickable */
+    border-radius: 5px; /* Slightly rounded corners for the button */
+    background-color: #e4e4e4; /* Light gray background for contrast */
+    border: none; /* No border for a cleaner look */
+    line-height: normal; /* Ensures the button doesn't extend too tall */
+    height: 30px;
+  }
+  
