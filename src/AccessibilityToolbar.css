@@ -43,3 +43,31 @@
 img {
     transition: transform 0.3s ease; /* Adjust time and easing function to your preference */
 }
+.accessibility-toolbar {
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.accessibility-toolbar {
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.accessibility-toolbar button {
+    padding: 5px 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* Ensure label font size remains constant */
+.accessibility-toolbar label {
+    font-size: 16px; /* Fixed size, does not scale with root font-size changes */
+    margin-right: 5px;
+}
