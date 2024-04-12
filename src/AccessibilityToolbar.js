@@ -1,14 +1,18 @@
-import React from 'react';
-import './AccessibilityToolbar.css'; // Make sure to create this CSS file
+import React, { useState } from 'react';
+import './AccessibilityToolbar.css';
+import Magnifier from './Magnifier'; // Make sure this is correctly imported
 
 function AccessibilityToolbar() {
-  return (
-    <div className="accessibility-toolbar">
-      <button onClick={() => alert('Magnifier activated!')}>
-        Magnifier
-      </button>
-    </div>
-  );
+    const [showMagnifier, setShowMagnifier] = useState(false);
+
+    return (
+        <div className="accessibility-toolbar">
+            <button onClick={() => setShowMagnifier(!showMagnifier)}>
+                {showMagnifier ? 'Disable Magnifier' : 'Enable Magnifier'}
+            </button>
+            {showMagnifier && <Magnifier />}
+        </div>
+    );
 }
 
 export default AccessibilityToolbar;

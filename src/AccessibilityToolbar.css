@@ -25,3 +25,21 @@
     height: 30px;
   }
   
+  .magnifier-lens {
+    position: absolute;
+    width: 100px; /* Adjust size as needed */
+    height: 100px; /* Adjust size as needed */
+    border: 2px solid black;
+    border-radius: 50%;
+    cursor: none;
+    pointer-events: none;
+    overflow: hidden;
+    box-shadow: 0 0 10px 3px rgba(0,0,0,0.5);
+    background-repeat: no-repeat;
+    background-size: 200%; /* Adjust the zoom level */
+    transition: background-position 0.1s; /* Smooth transition for the background position */
+}
+/* AccessibilityToolbar.css or another appropriate CSS file */
+img {
+    transition: transform 0.3s ease; /* Adjust time and easing function to your preference */
+}
