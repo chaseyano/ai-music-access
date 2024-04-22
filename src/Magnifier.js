@@ -43,7 +43,7 @@ function Magnifier() {
     };
 
     return (
-        <button onClick={toggleMagnifier}>
+        <button id="magnify-button" onClick={toggleMagnifier}>
             {isActive ? 'Disable Magnifier' : 'Enable Magnifier'}
         </button>
     );

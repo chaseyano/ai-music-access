@@ -1,39 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 function SpeechRecognitionButton() {
     const [listening, setListening] = useState(false);
     const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    recognition.lang = 'en-US';
 
-    // Set the properties for the speech recognition
-    recognition.continuous = true; // Continuous recognition
-    recognition.interimResults = true; // Result can change as more speech is recognized
-    recognition.lang = 'en-US'; // Language of the speech recognition
+    // Ref to store the last command and its timestamp
+    const lastCommandRef = useRef({ command: null, timestamp: Date.now() });
 
-    // Handle the start of the recognition process
-    const startListening = () => {
-        recognition.start();
-        setListening(true);
-        recognition.onresult = (event) => {
-            const transcript = Array.from(event.results)
-                                    .map(result => result[0])
-                                    .map(result => result.transcript)
-                                    .join('');
-            console.log(transcript);
-        };
+    recognition.onresult = (event) => {
+        let transcript = '';
+        for (let i = event.resultIndex; i < event.results.length; ++i) {
+            transcript += event.results[i][0].transcript;
+        }
+
+        handleCommand(transcript.toLowerCase().trim());
     };
 
-    // Handle the end of the recognition process
-    const stopListening = () => {
-        recognition.stop();
-        setListening(false);
+    const handleCommand = (transcript) => {
+        console.log("Heard:", transcript); // Log the full transcript for debugging
+
+        const commands = ["magnify", "font", "read", "navigate"];
+        const currentTimestamp = Date.now();
+        for (let cmd of commands) {
+            if (transcript.includes(cmd) && (lastCommandRef.current.command !== cmd || currentTimestamp - lastCommandRef.current.timestamp > 1000)) {
+                document.getElementById(`${cmd}-button`).click();
+                lastCommandRef.current = { command: cmd, timestamp: currentTimestamp };
+                break; // Exit loop after the first match to prevent multiple commands
+            }
+        }
     };
 
-    // Toggle listening state
     const toggleListening = () => {
         if (listening) {
-            stopListening();
+            recognition.stop();
+            setListening(false);
         } else {
-            startListening();
+            recognition.start();
+            setListening(true);
         }
     };
 

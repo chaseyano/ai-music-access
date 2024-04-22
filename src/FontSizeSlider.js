@@ -12,7 +12,7 @@ function FontSizeSlider() {
 
     return (
         <div>
-            <button onClick={() => setIsActive(!isActive)}>
+            <button id="font-button" onClick={() => setIsActive(!isActive)}>
                 {isActive ? 'Close Font Size' : 'Font Size'}
             </button>
             {isActive && (
