@@ -1,13 +1,14 @@
-/* General container styling for any lesson page */
 .lesson-container {
     width: 90%;
     margin: 20px auto;
     padding: 10px;
+    padding-bottom: 60px; /* Increase padding at the bottom */
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     overflow: auto; /* Allows for internal scrolling if needed */
 }
+
 
 /* Styling paragraphs for better readability specific to lesson containers */
 .lesson-container p {
