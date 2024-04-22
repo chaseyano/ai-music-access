@@ -1,0 +1,59 @@
+.stem-splitter {
+    width: 90%;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: auto; /* To allow scrolling within the container */
+    min-height: auto; /* Ensure it only grows as tall as needed */
+    max-height: none; /* Remove any max-height if previously set */
+}
+
+
+/* Styling paragraphs for better readability */
+.stem-splitter p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Control the size and display of images */
+.stem-splitter img {
+    width: 100%;        /* Full width of the container but not exceeding the max width */
+    max-width: 600px;   /* Maximum width for larger screens */
+    height: auto;       /* Maintain aspect ratio */
+    display: block;     /* Block will remove extra space below image */
+    margin: 10px auto;  /* Center the image horizontally and give some space around */
+}
+
+/* Headings styled to stand out */
+.stem-splitter h1, .stem-splitter h2 {
+    color: #2a2a2a;
+    margin-bottom: 20px;
+}
+/* Assuming the parent is a div immediately outside .stem-splitter */
+div {
+    padding: 10px; /* Or any suitable value */
+}
+body {
+    display: block; /* Revert to standard block layout */
+    height: auto; /* Remove the height restriction */
+    margin: 0;
+    padding: 0;
+    background: #f0f0f0; /* Keep the background if you like it */
+}
+.stem-splitter h1, .stem-splitter h2, .stem-splitter p, .stem-splitter img {
+    /* Reset margins for headers and paragraphs */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.stem-splitter img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+}

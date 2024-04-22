@@ -1,19 +1,25 @@
 import React from 'react';
-import './App.css'; // Importing the CSS file for styling
-
+import { useNavigate } from 'react-router-dom';
+import './App.css';
+import AccessibilityToolbar from './AccessibilityToolbar'
 function Home() {
+  const navigate = useNavigate();
+
+  const handleStemSplitterClick = () => {
+    navigate('/stem-splitter'); // Navigates to the StemSplitter component
+  };
+
   return (
-    <div className="column-container">
+  
+    <><div className="column-container">
       <h1>AI-assisted Music Accessibility</h1>
       <p className="quote-body">"Without music, life would be a mistake."</p>
       <p className="quote-author">— Friedrich Nietzsche</p>
       <p className="content">Artificial Intelligence has revolutionized society in a number of ways. One area where this change is especially noticeable is in art, and specifically music. Artists are using AI in various ways to create novel music.</p>
-
       <p className="content">However, not many discuss the intersection of AI with music accessibility. AI has already demonstrated several ways that it can make music, from listening to creation, more enjoyable for a wider audience.</p>
-
       <p className="content">Choose a technology below to start learning!</p>
       <div className="buttons-row" aria-label="Music technology options">
-        <button aria-label="Learn about Stem Splitters">
+        <button onClick={handleStemSplitterClick} aria-label="Learn about Stem Splitters">
           <img src={'https://vocalremover.org/img/splitter/player_en.png'} alt="Illustration of Stem Splitter technology showing a user interface with audio track layers" />
           Stem Splitters
         </button>
@@ -26,7 +32,7 @@ function Home() {
           AI-Composed Melodies
         </button>
       </div>
-    </div>
+    </div><AccessibilityToolbar /></>
   );
 }
 
