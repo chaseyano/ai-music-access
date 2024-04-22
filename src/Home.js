@@ -14,6 +14,10 @@ function Home() {
     navigate('/music-visualization'); // Navigates to the MusicVisualization component
   };
 
+  const handleAiComposedMelodiesClick = () => {
+    navigate('/ai-composed-melodies'); // Navigates to the AiComposedMelodies component
+  };
+
   return (
     <>
       <div className="column-container">
@@ -32,7 +36,7 @@ function Home() {
             <img src={'https://wzrd.ai/static/67b83272a88c1a322fe82f0887e4025e/0a45a/divine_1024x1024.jpg'} alt="Graphical representation of AI music visualization" />
             AI Music Visualization
           </button>
-          <button aria-label="Learn about AI Composed Melodies">
+          <button onClick={handleAiComposedMelodiesClick} aria-label="Learn about AI Composed Melodies">
             <img src={'https://miro.medium.com/v2/resize:fit:1200/1*62DW4EnILgAVkpw4UQwECg.png'} alt="Diagram showing the process of AI composing melodies with neural networks" />
             AI-Composed Melodies
           </button>
