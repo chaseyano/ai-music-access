@@ -33,11 +33,11 @@ function Home() {
             Stem Splitters
           </button>
           <button onClick={handleMusicVisualizationClick} aria-label="Learn about AI Music Visualization">
-            <img src={'https://wzrd.ai/static/67b83272a88c1a322fe82f0887e4025e/0a45a/divine_1024x1024.jpg'} alt="Graphical representation of AI music visualization" />
+            <img src={'https://wzrd.ai/static/67b83272a88c1a322fe82f0887e4025e/0a45a/divine_1024x1024.jpg'} alt="3x3 grid of stills from AI music videos." />
             AI Music Visualization
           </button>
           <button onClick={handleAiComposedMelodiesClick} aria-label="Learn about AI Composed Melodies">
-            <img src={'https://miro.medium.com/v2/resize:fit:1200/1*62DW4EnILgAVkpw4UQwECg.png'} alt="Diagram showing the process of AI composing melodies with neural networks" />
+            <img src={'https://miro.medium.com/v2/resize:fit:1200/1*62DW4EnILgAVkpw4UQwECg.png'} alt="3D render of a robot DJing." />
             AI-Composed Melodies
           </button>
         </div>

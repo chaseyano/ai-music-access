@@ -18,7 +18,7 @@ function MusicVisualization() {
             <div className="lesson-container">
                 <h1>Exploring AI Music Visualization</h1>
                 <p>AI music visualization is a complex field that combines signal processing, machine learning, and visual arts to create dynamic representations of music. It translates audio signals into visual data, allowing for a more immersive experience in music listening and performance.</p>
-                <img src="http://www.pixelstalk.net/wp-content/uploads/2016/08/Cute-Puppies-Dog-Wallpaper.jpg" alt="Visual representation of music interpreted by AI technology" />
+                <img src="https://wzrd.ai/static/67b83272a88c1a322fe82f0887e4025e/0a45a/divine_1024x1024.jpg" alt="A 3-by-3 grid of WZRD.AI stills" />
 
                 <h2>Key Algorithms and Techniques</h2>
                 <p>At the core of music visualization are several algorithms that analyze different aspects of music:
@@ -29,11 +29,10 @@ function MusicVisualization() {
                         <li><strong>Machine Learning:</strong> Neural networks and deep learning models can learn from a vast array of music types and generate corresponding visual patterns that evolve with the music.</li>
                     </ul>
                 </p>
-                <img src="http://www.pixelstalk.net/wp-content/uploads/2016/08/Cute-Puppies-Dog-Wallpaper.jpg" alt="AI interpreting music into dynamic visual forms" />
 
                 <h2>Applications in Performance and Accessibility</h2>
                 <p>Music visualization is not just an enhancement for live performances; it also makes music more accessible. By converting audio cues into visual data, it provides an alternative sensory experience for the deaf and hard of hearing community.</p>
-                <img src="http://www.pixelstalk.net/wp-content/uploads/2016/08/Cute-Puppies-Dog-Wallpaper.jpg" alt="Concert with AI-driven visual effects enhancing music" />
+                <img src="https://wzrd.ai/static/f3c15342bd3a6f75387b9f0777b77328/0a45a/patterns_512x512.jpg" alt="A 3-by-3 grid of WZRD.AI stills" />
 
                 <h2>Video Demonstration</h2>
                 <p>This video demonstration showcases the real-time processing of music into engaging visual forms, illustrating the direct impact and capabilities of AI music visualization technology.</p>
@@ -50,11 +49,9 @@ function MusicVisualization() {
 
                 <h2>Technical Challenges</h2>
                 <p>Developing effective music visualization systems involves challenges like real-time data processing and creating visually appealing yet informative representations. The complexity increases with the need to adapt to different music genres and styles dynamically.</p>
-                <img src="http://www.pixelstalk.net/wp-content/uploads/2016/08/Cute-Puppies-Dog-Wallpaper.jpg" alt="Diagram of real-time music visualization challenges" />
 
                 <h2>Conclusion</h2>
                 <p>AI music visualization is a promising area that bridges technology and art, enhancing not only the aesthetic enjoyment of music but also its accessibility. As technology advances, the potential for innovative applications continues to expand.</p>
-                <img src="http://www.pixelstalk.net/wp-content/uploads/2016/08/Cute-Puppies-Dog-Wallpaper.jpg" alt="Diverse audience enjoying an AI-enhanced music visual experience" />
             </div>
             <AccessibilityToolbar />
         </>

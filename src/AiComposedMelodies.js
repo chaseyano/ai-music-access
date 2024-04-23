@@ -26,7 +26,8 @@ function AiComposedMusic() {
                         <li><strong>Transformer Networks:</strong> By treating music production as a language translation task, transformers can create music that translates artistic intent into musical expressions, managing complex sequences over extended periods.</li>
                     </ul>
                 </p>
-                
+                <img src="http://www.youredm.com/wp-content/uploads/2014/02/Robot-DJ-Tom-Toonami.jpg" alt="3d render of a robot performing a DJ set." />
+
                 <h2>Accessibility in AI-Driven Music Production</h2>
                 <p>AI-generated music tools are designed to be user-friendly, allowing individuals with varying levels of physical mobility and cognitive ability to create complex compositions. These tools often include:
                     <ul>
