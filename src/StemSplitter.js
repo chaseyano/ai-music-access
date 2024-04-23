@@ -1,18 +1,19 @@
 import React, { useEffect } from 'react';
-import './lessons.css';  // Ensuring this is the CSS file with your updated styles
+import './lessons.css';
 import AccessibilityToolbar from './AccessibilityToolbar';
 
 function StemSplitter() {
     useEffect(() => {
         // Add the 'body-lesson' class to body on mount
         document.body.classList.add('body-lesson');
-    
+
         // Clean up by removing the class on unmount
-        return () => {
-          document.body.classList.remove('body-lesson');
-        };
-      }, []);
-    
+        return () => document.body.classList.remove('body-lesson');
+    }, []);
+
+    const tracks = ['orig', 'bass', 'drums', 'vocals', 'other'];
+    const trackFiles = tracks.map(track => `/tracks/${track}.wav`);
+
     return (
         <>
             <div className="lesson-container">
@@ -31,6 +32,19 @@ function StemSplitter() {
                 <h2>Stem Splitting for Accessibility</h2>
                 <p>Beyond music production, AI stem splitting technology holds significant potential for enhancing accessibility. For individuals with hearing impairments, AI can tailor music or other audio content to enhance frequencies or elements that they can hear more clearly. Furthermore, this technology can be used in real-time communication tools to isolate speech from background noise, helping people with auditory processing disorders to understand conversations better in noisy environments.</p>
                 <img src="http://www.pixelstalk.net/wp-content/uploads/2016/08/Cute-Puppies-Dog-Wallpaper.jpg" alt="App interface for enhancing audio tracks" />
+
+                <h2>Stem Splitting Example</h2>
+                <p>Below is an example of AI stem splitting applied to an original audio track. You can see the original track followed by its separated stems, each playable independently.</p>
+                <div className="audio-container">
+                    {trackFiles.map((file, index) => (
+                        <div key={index}>
+                            <h3>{tracks[index].charAt(0).toUpperCase() + tracks[index].slice(1)} Track</h3>
+                            <audio controls src={file}>
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    ))}
+                </div>
 
                 <h2>Conclusion</h2>
                 <p>AI stem splitting technology is not just transforming the way we interact with music but also how we can tailor auditory experiences to meet diverse needs. This capability to dissect and reassemble sounds holds promise for creating more inclusive and personalized audio environments, making technology more accessible and enjoyable for all.</p>
