@@ -2,73 +2,52 @@ import React, { useState, useEffect } from 'react';
 import './AccessibilityToolbar.css';
 
 function CrosshairNavigation() {
-    const [horizPos, setHorizPos] = useState(-1); // Start off-screen
-    const [vertPos, setVertPos] = useState(-1);
-    const [mode, setMode] = useState(0); // 0: inactive, 1: moving horizontal, 2: moving vertical, 3: reset
+    const [horizPos, setHorizPos] = useState(0); // Initialize horizontal position
+    const [vertPos, setVertPos] = useState(0); // Initialize vertical position
+    const [mode, setMode] = useState(0); // 0: inactive, 1: moving horizontal, 2: moving vertical
 
     useEffect(() => {
         let intervalId = null;
 
-        if (mode === 1 && horizPos === -1) {
-            // Initialize horizontal position at the top
-            setHorizPos(0);
-        }
-        if (mode === 2 && vertPos === -1) {
-            // Initialize vertical position at the left
-            setVertPos(0);
-        }
-
         if (mode === 1) {
             // Horizontal movement
             intervalId = setInterval(() => {
-                setHorizPos(pos => {
-                    if (pos < window.innerHeight) {
-                        return pos + 1;
-                    } else {
-                        clearInterval(intervalId);
-                        return pos;
-                    }
-                });
-            }, 10);
+                setHorizPos(pos => (pos + 2) % window.innerHeight); // Reduce increment to 2 pixels
+            }, 20); // Increase interval to 20 milliseconds
         } else if (mode === 2) {
             // Vertical movement
             intervalId = setInterval(() => {
-                setVertPos(pos => {
-                    if (pos < window.innerWidth) {
-                        return pos + 1;
-                    } else {
-                        clearInterval(intervalId);
-                        return pos;
-                    }
-                });
-            }, 10);
+                setVertPos(pos => (pos + 2) % window.innerWidth); // Reduce increment to 2 pixels
+            }, 20); // Increase interval to 20 milliseconds
         }
 
-        return () => clearInterval(intervalId);
-    }, [mode, horizPos, vertPos]);
+        return () => clearInterval(intervalId); // Clean up interval on unmount or mode change
+    }, [mode]);
 
     useEffect(() => {
         const handleKeyPress = (event) => {
             if (event.key === 'q' || event.key === 'Q') {
-                switch (mode) {
-                    case 0:
-                        setMode(1); // Activate horizontal movement
-                        break;
-                    case 1:
-                        setMode(2); // Switch to vertical movement after horizontal completes
-                        break;
-                    case 2:
-                        setMode(0); // Reset after vertical completes
-                        setHorizPos(-1);
-                        setVertPos(-1);
-                        break;
-                }
+                setMode(prevMode => (prevMode + 1) % 3); // Cycle through the modes
             }
         };
 
-        document.addEventListener('keydown', handleKeyPress);
-        return () => document.removeEventListener('keydown', handleKeyPress);
-    }, [mode]);
+        window.addEventListener('keydown', handleKeyPress);
+        return () => window.removeEventListener('keydown', handleKeyPress);
+    }, []);
+
+    useEffect(() => {
+        // Trigger click when both lines are set and mode returns to inactive
+        if (mode === 0 && horizPos !== -1 && vertPos !== -1) {
+            const clickPoint = document.elementFromPoint(vertPos, horizPos);
+            if (clickPoint) {
+                clickPoint.click();  // Simulate the click event
+                console.log('Click at:', vertPos, horizPos);  // Log the click position for debugging
+            }
+            // Reset positions after the click
+            setHorizPos(0);
+            setVertPos(0);
+        }
+    }, [mode, horizPos, vertPos]);
 
     return (
         <div>
