@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import './lessons.css';  // Ensuring this is the CSS file with your updated styles
+import './lessons.css';
 import AccessibilityToolbar from './AccessibilityToolbar';
 
 function MusicVisualization() {
@@ -11,7 +11,7 @@ function MusicVisualization() {
         return () => {
           document.body.classList.remove('body-lesson');
         };
-      }, []);
+    }, []);
 
     return (
         <>
@@ -37,7 +37,16 @@ function MusicVisualization() {
 
                 <h2>Video Demonstration</h2>
                 <p>This video demonstration showcases the real-time processing of music into engaging visual forms, illustrating the direct impact and capabilities of AI music visualization technology.</p>
-                <img src="http://www.pixelstalk.net/wp-content/uploads/2016/08/Cute-Puppies-Dog-Wallpaper.jpg" alt="Preview of a video demonstration of music visualization" />
+                <iframe
+                    className = "centered-video"
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/vhZQB1VYlnA?rel=0&cc_load_policy=1"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                ></iframe>
 
                 <h2>Technical Challenges</h2>
                 <p>Developing effective music visualization systems involves challenges like real-time data processing and creating visually appealing yet informative representations. The complexity increases with the need to adapt to different music genres and styles dynamically.</p>
