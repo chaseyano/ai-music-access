@@ -1,17 +1,37 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './lessons.css';
 import AccessibilityToolbar from './AccessibilityToolbar';
 
 function MusicVisualization() {
+    const [isPlaying, setIsPlaying] = useState(false);
+    const videoRef = useRef(null);
+
     useEffect(() => {
-        // Add the 'body-lesson' class to body on mount
         document.body.classList.add('body-lesson');
-    
-        // Clean up by removing the class on unmount
         return () => {
-          document.body.classList.remove('body-lesson');
+            document.body.classList.remove('body-lesson');
         };
     }, []);
+
+    const toggleVideoPlayback = () => {
+        if (videoRef.current) {
+            if (isPlaying) {
+                videoRef.current.contentWindow.postMessage(JSON.stringify({
+                    event: 'command',
+                    func: 'pauseVideo',
+                    args: []
+                }), '*');
+                setIsPlaying(false);
+            } else {
+                videoRef.current.contentWindow.postMessage(JSON.stringify({
+                    event: 'command',
+                    func: 'playVideo',
+                    args: []
+                }), '*');
+                setIsPlaying(true);
+            }
+        }
+    };
 
     return (
         <>
@@ -37,15 +57,21 @@ function MusicVisualization() {
                 <h2>Video Demonstration</h2>
                 <p>This video demonstration showcases the real-time processing of music into engaging visual forms, illustrating the direct impact and capabilities of AI music visualization technology.</p>
                 <iframe
-                    className = "centered-video"
+                    ref={videoRef}
+                    className="centered-video"
                     width="560"
                     height="315"
-                    src="https://www.youtube.com/embed/vhZQB1VYlnA?rel=0&cc_load_policy=1"
+                    src="https://www.youtube.com/embed/vhZQB1VYlnA?enablejsapi=1"
                     title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen
                 ></iframe>
+
+                <button                    id="video-button"
+ onClick={toggleVideoPlayback} aria-label="Toggle video playback">
+                    {isPlaying ? 'Pause Video' : 'Play Video'}
+                </button>
 
                 <h2>Technical Challenges</h2>
                 <p>Developing effective music visualization systems involves challenges like real-time data processing and creating visually appealing yet informative representations. The complexity increases with the need to adapt to different music genres and styles dynamically.</p>

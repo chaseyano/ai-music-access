@@ -44,7 +44,7 @@ function AiComposedMusic() {
                 <p>Output:</p>
                 <div className="output-placeholder">
                     <p>The resulting track, can be heard below. This beat was created on the platform <a href="https://create.musicfy.lol/create/text-to-music" target="_blank" rel="noopener noreferrer">Musicfy</a>.</p>
-                    <audio controls>
+                    <audio controls id="beat-audio">
                         <source src="/tracks/beat.wav" type="audio/wav" />
                         Your browser does not support the audio element.
                     </audio>

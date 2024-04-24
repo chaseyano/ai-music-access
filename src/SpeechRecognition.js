@@ -22,11 +22,26 @@ function SpeechRecognitionButton() {
     const handleCommand = (transcript) => {
         console.log("Heard:", transcript); // Log the full transcript for debugging
 
-        const commands = ["magnify", "font", "read", "navigate"];
+        const commands = ["video", "beat","magnify", "font", "read", "navigate", "stem", "home", "visual", "melody", "original", "bass", "drums", "vocals", "other"];
+        const audioControlCommands = ["original", "bass", "drums", "vocals", "other","beat"]; // Commands that control audio
         const currentTimestamp = Date.now();
+
         for (let cmd of commands) {
             if (transcript.includes(cmd) && (lastCommandRef.current.command !== cmd || currentTimestamp - lastCommandRef.current.timestamp > 1000)) {
-                document.getElementById(`${cmd}-button`).click();
+                if (audioControlCommands.includes(cmd)) {
+                    // If the command is for controlling audio, play/pause the audio instead of clicking a button
+                    const audioElement = document.getElementById(`${cmd}-audio`);
+                    if (audioElement) {
+                        if (audioElement.paused) {
+                            audioElement.play();
+                        } else {
+                            audioElement.pause();
+                        }
+                    }
+                } else {
+                    // For other commands, simulate a button click
+                    document.getElementById(`${cmd}-button`).click();
+                }
                 lastCommandRef.current = { command: cmd, timestamp: currentTimestamp };
                 break; // Exit loop after the first match to prevent multiple commands
             }

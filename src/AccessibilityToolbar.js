@@ -12,7 +12,7 @@ function AccessibilityToolbar() {
 
     return (
         <div className="accessibility-toolbar">
-            <button onClick={() => navigate('/')} className="home-button">Home</button> {/* Home button to navigate to the root */}
+            <button id="home-button" onClick={() => navigate('/')} className="home-button">Home</button> {/* Home button to navigate to the root */}
             <Magnifier />
             <FontSizeSlider />
             <ScreenReader />

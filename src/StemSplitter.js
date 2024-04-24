@@ -11,7 +11,7 @@ function StemSplitter() {
         return () => document.body.classList.remove('body-lesson');
     }, []);
 
-    const tracks = ['orig', 'bass', 'drums', 'vocals', 'other'];
+    const tracks = ['original', 'bass', 'drums', 'vocals', 'other'];
     const trackFiles = tracks.map(track => `/tracks/${track}.wav`);
 
     return (
@@ -35,15 +35,16 @@ function StemSplitter() {
 
                 <p>Below is an example of AI stem splitting applied to an original audio track. You can see the original track, Not a Drill by Veeze, followed by its separated stems, each playable independently.</p>
                 <div className="audio-container">
-                    {trackFiles.map((file, index) => (
-                        <div key={index}>
-                            <h3>{tracks[index].charAt(0).toUpperCase() + tracks[index].slice(1)} Track</h3>
-                            <audio controls src={file}>
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                    ))}
-                </div>
+  {trackFiles.map((file, index) => (
+    <div key={index} id={`${tracks[index]}-button`}>
+      <h3>{tracks[index].charAt(0).toUpperCase() + tracks[index].slice(1)} Track</h3>
+      <audio controls src={file} id={`${tracks[index]}-audio`}>
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  ))}
+</div>
+
 
                 <h2>Conclusion</h2>
                 <p>AI stem splitting technology is not just transforming the way we interact with music but also how we can tailor auditory experiences to meet diverse needs. This capability to dissect and reassemble sounds holds promise for creating more inclusive and personalized audio environments, making technology more accessible and enjoyable for all.</p>
