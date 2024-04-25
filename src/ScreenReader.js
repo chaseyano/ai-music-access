@@ -37,7 +37,7 @@ function ScreenReader() {
 
     return (
         <button id="read-button" onClick={() => setIsActive(!isActive)}>
-            {isActive ? 'Deactivate Screen Reader' : 'Activate Screen Reader'}
+            {isActive ? 'Enable Reader' : 'Disable Reader'}
         </button>
     );
 }
