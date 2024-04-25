@@ -4,9 +4,13 @@ import Home from './Home';
 import StemSplitter from './StemSplitter';
 import MusicVisualization from './MusicVisualization';  // Import the new component
 import AiComposedMelodies from './AiComposedMelodies';  // Import the new component
+import { SpeechRecognitionProvider } from './SpeechRecognitionContext';
+
 
 function App() {
   return (
+    <SpeechRecognitionProvider>
+
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -16,6 +20,8 @@ function App() {
 
       </Routes>
     </Router>
+    </SpeechRecognitionProvider>
+
   );
 }
 

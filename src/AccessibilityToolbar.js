@@ -7,6 +7,7 @@ import ScreenReader from './ScreenReader';
 import CrosshairNavigation from './CrosshairNavigation';
 import SpeechRecognitionButton from './SpeechRecognition'; // Import the new component
 
+
 function AccessibilityToolbar() {
     const navigate = useNavigate(); // Initialize navigate function
 
@@ -17,7 +18,9 @@ function AccessibilityToolbar() {
             <FontSizeSlider />
             <ScreenReader />
             <CrosshairNavigation />
-            <SpeechRecognitionButton />
+
+                <SpeechRecognitionButton />
+
             <div className="navigation-instructions">
                 Press 'Q' to activate and use the one-click navigation.
             </div>
